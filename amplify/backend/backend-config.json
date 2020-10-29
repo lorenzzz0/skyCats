@@ -1,0 +1,79 @@
+{
+	"function": {
+		"catsdd7f5163": {
+			"runtimes": [
+				{
+					"value": "nodejs",
+					"name": "NodeJS",
+					"layerExecutablePath": "nodejs/node_modules",
+					"cloudTemplateValue": "nodejs12.x"
+				}
+			],
+			"layerVersionMap": {
+				"1": {
+					"permissions": [
+						{
+							"type": "public"
+						},
+						{
+							"type": "private"
+						}
+					]
+				}
+			},
+			"providerPlugin": "awscloudformation",
+			"service": "LambdaLayer",
+			"build": true
+		},
+		"catsfc277533": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "s3158226ae",
+					"attributes": [
+						"BucketName"
+					]
+				},
+				{
+					"category": "function",
+					"resourceName": "catsdd7f5163",
+					"attributes": [
+						"Arn"
+					]
+				}
+			]
+		}
+	},
+	"api": {
+		"api11052026": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "catsfc277533",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		}
+	},
+	"auth": {
+		"catsf16551c2": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"storage": {
+		"s3158226ae": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}

@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/country-cats",
+            "lambdaFunction": "catsfc277533",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "api11052026",
+    "apiName": "api11052026",
+    "functionArns": [
+        {
+            "lambdaFunction": "catsfc277533"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-cats-dev-11201-authRole",
+        "unAuthRoleName": "amplify-cats-dev-11201-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "catsfc277533",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

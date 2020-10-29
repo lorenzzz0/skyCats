@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "storage": {
+      "s3158226ae": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  },
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "catsdd7f5163",
+      "version": 1
+    }
+  ]
+}
